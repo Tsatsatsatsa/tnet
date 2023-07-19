@@ -1,0 +1,45 @@
+<div *ngIf="weather" class="text-white text-center">
+    <h1>
+        {{weather.name}},{{weather.sys.country}}
+    </h1>
+    <div class="mb-3">
+        {{weather.dt * 1000 | date:'EEEE, MMMM d, y'}}
+    </div>
+    <div>
+        <span class="bg-secondary px-4 py-2 rounded-4 text-capitalize">
+            {{weather.weather[0].main}} &ndash; {{weather.weather[0].description}}
+        </span>
+    </div>
+    <img class="mb-3" [src]="ICON_URL + '/' + weather.weather[0].icon + '@4x.png'">
+    <div class="display-3 mb-5" style="font-weight: 500;">
+        <span>{{weather.main.temp | number: '1.0-0'}}
+            <span [innerHTML]="degreeSymbol"></span>
+        </span>
+    </div>
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <app-weather-info-card [label]="'Real feel'" [value]="weather.main.feels_like" [valueFormat]="'1.0-0'"
+                [icon]="icons.faTemperatureFull" [symbol]="degreeSymbol">
+            </app-weather-info-card>
+        </div>
+        <div class="col-md-6 mb-3">
+            <app-weather-info-card [label]="'Humidity'" [value]="weather.main.humidity" [valueFormat]="'1.0-0'"
+                [icon]="icons.faDroplet" [text]="'%'">
+            </app-weather-info-card>
+        </div>
+        <div *ngIf="weather.main.sea_level" class="col-md-6 mb-3">
+            <app-weather-info-card [label]="'Sea Level'" [value]="weather.main.sea_level" [icon]="icons.faWater">
+            </app-weather-info-card>
+        </div>
+        <div class="col-md-6 mb-3">
+            <app-weather-info-card [label]="'Wind speed'" [value]="weather.wind.speed" [icon]="icons.faWind"
+                [text]="'m/s'">
+            </app-weather-info-card>
+        </div>
+        <div class="col-md-6 mb-3">
+            <app-weather-info-card [label]="'Visibility'" [value]="(weather.visibility) / 1000" [valueFormat]="'1.1-1'"
+                [icon]="icons.faEye" [text]="'km'">
+            </app-weather-info-card>
+        </div>
+    </div>
+</div>

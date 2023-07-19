@@ -1,0 +1,4 @@
+<div class="mb-4 d-flex">
+    <input type="text" class="form-control w-25" [formControl]="searchInput" placeholder="Select location">
+    <button type="button" class="btn btn-primary ms-2" (click)='submit()' [disabled]="!searchInput.value">Submit</button>
+</div>

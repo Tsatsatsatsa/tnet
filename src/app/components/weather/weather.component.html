@@ -1,0 +1,5 @@
+<div class="w-75 mx-auto my-5 p-5 bg-dark rounded-4">
+    <app-weather-search [defaultLocationName]="weather?.name"(locationNameChange)="onLocationNameChange($event)"></app-weather-search>
+    <div *ngIf="weather"><app-weather-card [weather]="weather"></app-weather-card></div>
+    <div *ngIf="!weather" class="text-white text-center text-uppercase display-3">{{errorMessage}}</div>
+</div>
