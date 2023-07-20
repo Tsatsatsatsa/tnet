@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { faTemperatureFull, faDroplet,faWater,faWind,faEye} from '@fortawesome/free-solid-svg-icons';
+import { faTemperatureFull, faDroplet,faWind,faEye,faGauge} from '@fortawesome/free-solid-svg-icons';
 
 import { environment } from 'src/environments/environment';
 import { Weather } from 'src/models/weather.model';
@@ -16,8 +16,8 @@ export class WeatherCardComponent {
     public icons = {
         faTemperatureFull,
         faDroplet,
-        faWater,
         faWind,
-        faEye
+        faEye,
+        faGauge
     }
 }

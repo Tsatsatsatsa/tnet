@@ -8,7 +8,7 @@ export interface Weather {
     },
     main: {
         temp: number;
-        sea_level: number;
+        sea_level?: number;
         pressure: number;
         feels_like: number;
         humidity: number

@@ -27,8 +27,9 @@
                 [icon]="icons.faDroplet" [text]="'%'">
             </app-weather-info-card>
         </div>
-        <div *ngIf="weather.main.sea_level" class="col-md-6 mb-3">
-            <app-weather-info-card [label]="'Sea Level'" [value]="weather.main.sea_level" [icon]="icons.faWater">
+        <div class="col-md-6 mb-3">
+            <app-weather-info-card [label]="'Pressure'" [value]="weather.main.sea_level ?? weather.main.pressure" [icon]="icons.faGauge"
+            [text]="'hPa'">
             </app-weather-info-card>
         </div>
         <div class="col-md-6 mb-3">
