@@ -40,7 +40,7 @@ export class WeatherComponent implements OnInit {
     }
   }
 
-  private showWeather = (value: any): void => {
+  private showWeather = (value: Weather): void => {
     this.weather = value;
     this.errorMessage = undefined;
   }
