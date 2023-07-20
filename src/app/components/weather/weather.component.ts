@@ -28,16 +28,18 @@ export class WeatherComponent implements OnInit {
   }
 
   private getDefaultWeather(): void {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(((position: GeolocationPosition) => {
-        this.weatherService.getWeatherByLocation(position.coords.latitude, position.coords.longitude)
-          .pipe()
-          .subscribe({
-            next: this.showWeather,
-            error: this.showError,
-          });
-      }), (error: GeolocationPositionError) => alert(error.message));
+    if (!navigator.geolocation) {
+      alert("location is not suported");
+      return
     }
+    navigator.geolocation.getCurrentPosition(((position: GeolocationPosition) => {
+      this.weatherService.getWeatherByLocation(position.coords.latitude, position.coords.longitude)
+        .pipe()
+        .subscribe({
+          next: this.showWeather,
+          error: this.showError,
+        });
+    }), (error: GeolocationPositionError) => alert(error.message));
   }
 
   private showWeather = (value: Weather): void => {

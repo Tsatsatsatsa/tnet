@@ -3,7 +3,7 @@
         <div class="d-flex flex-column align-items-start flex-grow-1">
             <div class="text-capitalize">{{label}}</div>
             <div>
-                {{value | number: valueFormat}}
+                {{valueFormat ? (value | number: valueFormat) : value}}
                 <span *ngIf="symbol" [innerHTML]="symbol"></span>
                 <span *ngIf="text" [innerHTML]="text"></span>
             </div>
